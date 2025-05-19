@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../PrivateRoute/AuthProvider';
 
 const Login = () => {
+    const { handleSignIn } = useContext(AuthContext);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const newUser = Object.fromEntries(formData.entries());
+        console.log(newUser);
+    }
+
     return (
         <div className="card bg-base-100 w-full mx-auto mt-12 max-w-sm shrink-0 shadow-2xl">
             <h3 className="text-2xl font-bold text-center pt-8">Login now!</h3>
             <div className="card-body">
-                <form className="fieldset space-y-2 py-4">
+                <form onSubmit={handleSubmit} className="fieldset space-y-2 py-4">
                     <label className="label">Email</label>
                     <input type="email" name='email' className="input" placeholder="Email" />
                     <label className="label">Password</label>
