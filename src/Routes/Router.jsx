@@ -3,6 +3,9 @@ import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../components/LogIn/Login";
 import Register from "../components/Register/Register";
+import AddTask from "../Pages/AddTask/AddTask";
+import BrowseTask from "../Pages/BrowseTask/BrowseTask";
+import PostedTask from "../Pages/PostedTask/PostedTask";
 
 export const router = createBrowserRouter([
     {
@@ -12,6 +15,18 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path: '/addTask',
+                Component: AddTask
+            },
+            {
+                path: '/browseTask',
+                Component: BrowseTask
+            },
+            {
+                path: '/postedTask',
+                Component: PostedTask
             },
             {
                 path: '/log-in',
