@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import React, { createContext, useState } from 'react';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { createContext, useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { auth } from '../../Firebase/Firebase.init';
 
@@ -26,6 +26,24 @@ const AuthProvider = ({ children }) => {
         handleSignIn,
         handleSignUp
     }
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/auth.user
+                const uid = currentUser.uid;
+                console.log(uid);
+                // ...
+            } else {
+                // User is signed out
+                // ...
+            }
+        })
+        return () => {
+            unSubscribe();
+        }
+    })
     return (
         <div>
             <AuthContext value={contextValues}>

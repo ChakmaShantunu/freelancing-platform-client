@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../PrivateRoute/AuthProvider';
 
 const Register = () => {
+
+    const navigate = useNavigate();
 
     const { handleSignUp } = useContext(AuthContext);
 
@@ -14,9 +16,29 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(name, email, photo, password);
 
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+
+        if (regex.test(password)) {
+            alert("valid password")
+        }
+        else {
+            alert("Password must contain at least one capital letter, one smaller and a number")
+        }
+
+        if (!name || !email || !password) {
+            alert("Please fill in all fields")
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters")
+            return;
+        }
+
         handleSignUp(email, password)
             .then(result => {
                 console.log(result.user)
+                navigate('/')
             })
             .catch(error => {
                 console.log(error)
