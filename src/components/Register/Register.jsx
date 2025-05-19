@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../PrivateRoute/AuthProvider';
 
 const Register = () => {
+
+    const { handleSignUp } = useContext(AuthContext);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const photo = e.target.photo.value;
+        const password = e.target.password.value;
+        console.log(name, email, photo, password);
+
+        handleSignUp(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
     return (
         <div className="card bg-base-100 w-full mx-auto mt-12 max-w-sm shrink-0 shadow-2xl">
             <h3 className="text-2xl font-bold text-center pt-8">Register now!</h3>
             <div className="card-body">
-                <form className="fieldset space-y-2 py-4">
+                <form onSubmit={handleSubmit} className="fieldset space-y-2 py-4">
                     <label className="label">Name</label>
                     <input type="text" name='name' className="input" placeholder="Your Name" />
                     <label className="label">Email</label>

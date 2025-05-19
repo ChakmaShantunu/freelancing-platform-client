@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../PrivateRoute/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const { handleSignIn } = useContext(AuthContext);
@@ -8,9 +9,21 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
-        const formData = new FormData(form);
-        const newUser = Object.fromEntries(formData.entries());
-        console.log(newUser);
+        const email = form.email.value;
+        const password = form.password.value;
+        // const formData = new FormData(form);
+        // const newUser = Object.fromEntries(formData.entries());
+        // console.log(newUser);
+        console.log(email, password)
+
+        handleSignIn(email, password)
+        .then(result => {
+            console.log(result.user)
+            toast.success("Logged in Successful")
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     return (
