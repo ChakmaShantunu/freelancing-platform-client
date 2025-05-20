@@ -19,6 +19,7 @@ const TaskCard = ({ task }) => {
             <Link to={`/tasks/${_id}`} className="btn btn-sm btn-primary mt-2">
                 See Details
             </Link>
+            
         </div>
     );
 };

@@ -2,24 +2,57 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const MyPostedTask = ({ task }) => {
-    const { _id, title, budget, category, email, name, deadline } = task;
+    // const { _id, title, budget, category, email, name, deadline } = task;
     return (
-        <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition duration-300">
-            <h2 className="text-xl font-bold text-gray-800 mb-1">{title}</h2>
-            <p className="text-sm text-gray-500 mb-2">{category}</p>
+        // <div className="overflow-x-auto">
+        //     <table className="table">
+        //         {/* head */}
+        //         <thead>
+        //             <tr>
+        //                 <th>
+        //                     <label>
+        //                         <input type="checkbox" className="checkbox" />
+        //                     </label>
+        //                 </th>
+        //                 <th>Name</th>
+        //                 <th>Job</th>
+        //                 <th>Position</th>
+        //                 <th></th>
+        //             </tr>
+        //         </thead>
+        //         <tbody>
+        //             {/* row 1 */}
+        //             <tr>
+        //                 <td>
+        //                     <div className="flex items-center gap-3">
+        //                         <div className="avatar">
+        //                             <div className="mask mask-squircle h-12 w-12">
+        //                                 <img
+        //                                     src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+        //                                     alt="Avatar Tailwind CSS Component" />
+        //                             </div>
+        //                         </div>
+        //                         <div>
+        //                             <div className="font-bold">Hart Hagerty</div>
+        //                             <div className="text-sm opacity-50">United States</div>
+        //                         </div>
+        //                     </div>
+        //                 </td>
+        //                 <td>
+        //                     Zemlak, Daniel and Leannon
+        //                     <br />
+        //                     <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+        //                 </td>
+        //                 <td>Purple</td>
+        //                 <th>
+        //                     <button className="btn btn-ghost btn-xs">details</button>
+        //                 </th>
+        //             </tr>
+        //         </tbody>
+        //     </table>
+        // </div>
+        <div>
 
-            <div className="text-sm text-gray-700 space-y-1 mb-3">
-                <p><span className="font-semibold">Deadline:</span> {deadline}</p>
-                <p><span className="font-semibold">Budget:</span> ${budget}</p>
-                <p><span className="font-semibold">Posted by:</span> {name}</p>
-                <p><span className="font-semibold">Email:</span> {email}</p>
-            </div>
-
-            <div className="join space-x-4">
-                <button className="btn join-item">Bid</button>
-                <button className="btn join-item">Update</button>
-                <button className="btn join-item">Delete</button>
-            </div>
         </div>
     );
 };
