@@ -5,7 +5,7 @@ import { AuthContext } from '../PrivateRoute/AuthProvider';
 
 const Profile = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, handleSignOut } = useContext(AuthContext)
 
     const [show, setShow] = useState(false);
     if (!user) {
@@ -20,14 +20,18 @@ const Profile = () => {
             <img onClick={handleShow} className='w-8 h-8 md:w-16 md:h-16 cursor-pointer' src={`${user ? user?.photoURL : userImg}`} alt="" />
             {
                 show && (
-                    <div className='absolute bg-amber-100 right-0 w-48 p-4 z-50 mt-2 rounded-lg'>
-                        <div className='flex justify-between items-center mb-4'>
+                    <div className='absolute bg-amber-100 right-0 w-96 p-4 z-50 mt-2 rounded-lg'>
+                        {/* <div className='flex justify-between items-center mb-4'>
                             <p className='text-xl'>Profile</p>
                             <p className='text-xl'>Amount</p>
-                        </div>
+                        </div> */}
                         <div className='flex justify-between items-center'>
                             <p>{user?.displayName || "No Name"}</p>
-                            <p>{user?.amount}</p>
+                            <button onClick={handleSignOut} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Logout</button>
+
+                        </div>
+                        <div className='w-48 p-4'>
+                            PhotoURL: {user?.photoURL || ""}
                         </div>
 
                     </div>

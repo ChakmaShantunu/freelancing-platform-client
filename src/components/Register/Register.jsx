@@ -6,7 +6,7 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const { handleSignUp, setUser } = useContext(AuthContext);
+    const { handleSignUp, setUser, updateUser } = useContext(AuthContext);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -37,13 +37,21 @@ const Register = () => {
 
         handleSignUp(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
-                setUser(user);
-                navigate('/')
+                const user = result.user
+                console.log(user)
+                updateUser({ displayName: name, photoURL: photo }).then(() => {
+                    setUser({ ...user, displayName: name, photoURL: photo })
+                    navigate('/');
+                })
+                    .catch(error => {
+                        console.log(error);
+                        setUser(user)
+                    })
+
             })
             .catch(error => {
-                console.log(error)
+                console.log(error);
+
             })
     }
     return (

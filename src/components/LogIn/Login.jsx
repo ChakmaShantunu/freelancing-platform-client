@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../PrivateRoute/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
     const { handleSignIn, googleSignIn } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -48,7 +50,7 @@ const Login = () => {
                     <label className="label">Password</label>
                     <input type="password" name='password' className="input" placeholder="Password" />
                     <div><button className="link link-hover">Forgot password?</button></div>
-                    <button type='submit' className="btn btn-neutral mt-4">Login</button>
+                    <button onClick={() => navigate('/')} type='submit' className="btn btn-neutral mt-4">Login</button>
                 </form>
 
                 <p>New to this website? Please <Link className='underline' to='/register'>Register</Link></p>
