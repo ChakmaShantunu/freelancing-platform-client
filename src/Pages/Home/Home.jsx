@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Hero from '../../components/Hero/Hero';
-import { data, useLoaderData } from 'react-router';
 import SectionTask from '../../components/SectionTask/SectionTask';
 import TaskCard from '../../components/taskcard/TaskCard';
 
@@ -8,7 +7,7 @@ const Home = () => {
 
     const [deadline, setDeadline] = useState([])
     useEffect(() => {
-        fetch('http://localhost:3000/deadline-tasks')
+        fetch('http://localhost:3000/tasks')
             .then(res => res.json())
             .then(data => {
                 setDeadline(data);
