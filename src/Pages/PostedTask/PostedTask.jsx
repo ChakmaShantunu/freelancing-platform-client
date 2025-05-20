@@ -5,6 +5,7 @@ import TaskCard from '../../components/taskcard/TaskCard';
 import MyPostedTask from '../../components/myPostedTask/MyPostedTask';
 import { MdDelete, MdOutlineSystemUpdateAlt } from "react-icons/md";
 import { FaGavel } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 const PostedTask = () => {
 
@@ -14,6 +15,40 @@ const PostedTask = () => {
     }
 
     const [myTask, setMyTask] = useState([])
+
+    const handleDelete = (id) => {
+        console.log('deleting done', id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:3000/tasks/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            const remainingTask = myTask.filter(task => task._id !== id)
+                            setMyTask(remainingTask);
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                        console.log('after deleting the data', data)
+                    })
+
+            }
+        });
+    }
 
     useEffect(() => {
         fetch(`http://localhost:3000/posted-tasks?email=${user.email}`)
@@ -82,7 +117,7 @@ const PostedTask = () => {
                                                 <button className="btn hover:bg-blue-200"><MdOutlineSystemUpdateAlt size={20} /></button>
                                             </td>
                                             <td>
-                                                <button className="btn hover:bg-red-200"><MdDelete size={20} /></button>
+                                                <button onClick={() => handleDelete(task._id)} className="btn hover:bg-red-200"><MdDelete size={20} /></button>
                                             </td>
                                         </tr>)
                                     }
