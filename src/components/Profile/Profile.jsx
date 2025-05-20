@@ -25,10 +25,10 @@ const Profile = () => {
                             <p className='text-xl'>Profile</p>
                             <p className='text-xl'>Amount</p>
                         </div>
-                        {/* <div className='flex justify-between items-center'>
+                        <div className='flex justify-between items-center'>
                             <p>{user?.displayName || "No Name"}</p>
                             <p>{user?.amount}</p>
-                        </div> */}
+                        </div>
 
                     </div>
                 )

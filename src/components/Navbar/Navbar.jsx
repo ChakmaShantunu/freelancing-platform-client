@@ -45,7 +45,7 @@ const Navbar = () => {
                     user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)
                 }
                 {
-                    user?.email ? (<button onClick={handleSignOut} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Logout</button>) : (<button onClick={() => navigate('/')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Login</button>)
+                    user?.email ? (<button onClick={handleSignOut} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Logout</button>) : (<button onClick={() => navigate('/log-in')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Login</button>)
                 }
                 <Profile></Profile>
             </div>
