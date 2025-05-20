@@ -6,7 +6,7 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const { handleSignUp } = useContext(AuthContext);
+    const { handleSignUp, setUser } = useContext(AuthContext);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -37,7 +37,9 @@ const Register = () => {
 
         handleSignUp(email, password)
             .then(result => {
-                console.log(result.user)
+                const user = result.user;
+                console.log(user);
+                setUser(user);
                 navigate('/')
             })
             .catch(error => {

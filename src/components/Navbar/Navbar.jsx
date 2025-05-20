@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router';
+import { AuthContext } from '../PrivateRoute/AuthProvider';
+import Profile from '../Profile/Profile';
 
 
 
@@ -13,6 +15,8 @@ const links = <>
 const Navbar = () => {
 
     const navigate = useNavigate();
+
+    const { user, handleSignOut } = useContext(AuthContext);
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -34,8 +38,16 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button onClick={() => navigate('/register')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>
+            <div className="navbar-end gap-2">
+                <div>{user && user.email}</div>
+
+                {
+                    user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)
+                }
+                {
+                    user?.email ? (<button onClick={handleSignOut} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Logout</button>) : (<button onClick={() => navigate('/')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Login</button>)
+                }
+                <Profile></Profile>
             </div>
         </div>
     );
