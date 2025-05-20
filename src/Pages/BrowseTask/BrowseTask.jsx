@@ -6,9 +6,9 @@ import TaskCard from '../../components/taskcard/TaskCard';
 const BrowseTask = () => {
 
     const { user } = useContext(AuthContext);
-    if (!user || !user?.email) {
-        return <Navigate to="/log-in"></Navigate>
-    }
+    // if (!user || !user?.email) {
+    //     return <Navigate to="/log-in"></Navigate>
+    // }
 
     const allTasks = useLoaderData();
     console.log(allTasks);
