@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../components/PrivateRoute/AuthProvider';
 import { data } from 'react-router';
+import Swal from 'sweetalert2';
 
 const AddTask = () => {
 
@@ -21,11 +22,20 @@ const AddTask = () => {
             },
             body: JSON.stringify(newTask)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log('after posting the data', data)
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        // position: "top-center",
+                        icon: "success",
+                        title: "Your task added successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    form.reset();
+                }
+            })
+
     }
     return (
         <div className='p-24'>
@@ -63,11 +73,11 @@ const AddTask = () => {
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Name</label>
-                        <input type="text" name='name' className="input w-full" defaultValue={user ?.displayName} placeholder="Enter coffee details" readOnly />
+                        <input type="text" name='name' className="input w-full" defaultValue={user?.displayName} placeholder="Enter coffee details" readOnly />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Email</label>
-                        <input type="email" name='email' className="input w-full" defaultValue={user ?.email} placeholder="Enter coffee details" readOnly />
+                        <input type="email" name='email' className="input w-full" defaultValue={user?.email} placeholder="Enter coffee details" readOnly />
                     </fieldset>
                 </div>
                 <input type="submit" className='btn w-full mt-12' value="Add Coffee" />
