@@ -7,7 +7,7 @@ const Home = () => {
 
     const [deadline, setDeadline] = useState([])
     useEffect(() => {
-        fetch('http://localhost:3000/tasks')
+        fetch('http://localhost:3000/deadline-tasks')
             .then(res => res.json())
             .then(data => {
                 setDeadline(data);
