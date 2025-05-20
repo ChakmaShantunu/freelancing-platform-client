@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
 
             {
                 path: '/browseTask',
-                loader:() => fetch('http://localhost:3000/tasks'),
+                loader: () => fetch('http://localhost:3000/tasks'),
                 element: <PrivateRoute>
                     <BrowseTask></BrowseTask>
                 </PrivateRoute>
