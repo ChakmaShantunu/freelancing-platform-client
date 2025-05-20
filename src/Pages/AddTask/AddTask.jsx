@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../components/PrivateRoute/AuthProvider';
 
 const AddTask = () => {
+
+    const { user } = useContext(AuthContext)
 
     const handleTask = e => {
         e.preventDefault();
@@ -38,11 +41,11 @@ const AddTask = () => {
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Description</label>
-                        <input type="text" name='budget' className="input w-full" placeholder="Enter coffee price" />
+                        <textarea name="description" placeholder="Description" className="textarea textarea-bordered w-full mb-4" required />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Deadline</label>
-                        <input type="text" name='deadline' className="input w-full" placeholder="Enter coffee name" />
+                        <input type="date" name='deadline' className="input w-full" placeholder="Enter coffee name" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Budget</label>
@@ -50,11 +53,11 @@ const AddTask = () => {
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Name</label>
-                        <input type="text" name='name' className="input w-full" placeholder="Enter coffee price" />
+                        <input type="text" name='name' defaultValue={user?.displayName} className="input w-full" placeholder="Enter name" readOnly />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Email</label>
-                        <input type="text" name='email' className="input w-full" placeholder="Enter coffee price" />
+                        <input type="text" name='email' defaultValue={user?.email} className="input w-full" placeholder="Enter your email" readOnly />
                     </fieldset>
 
                 </div>
