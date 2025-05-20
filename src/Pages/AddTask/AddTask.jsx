@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../components/PrivateRoute/AuthProvider';
+import { data } from 'react-router';
 
 const AddTask = () => {
 
@@ -10,8 +11,21 @@ const AddTask = () => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const newCoffee = Object.fromEntries(formData.entries());
-        console.log(newCoffee);
+        const newTask = Object.fromEntries(formData.entries());
+        console.log(newTask);
+
+        fetch('http://localhost:3000/tasks', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newTask)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('after posting the data', data)
+        })
+        
     }
     return (
         <div className='p-24'>
