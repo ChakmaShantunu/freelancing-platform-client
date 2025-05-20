@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../components/PrivateRoute/AuthProvider';
+import { Navigate } from 'react-router';
 
 const AddTask = () => {
 
     const { user } = useContext(AuthContext)
+    
+    if(!user || !user?.email){
+        return <Navigate to="/log-in"></Navigate>
+    }
 
     const handleTask = e => {
         e.preventDefault();
@@ -24,12 +29,12 @@ const AddTask = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Title</label>
-                        <input type="text" name='title' className="input w-full" placeholder="Enter coffee name" />
+                        <input type="text" name='title' className="input w-full" placeholder="Enter task title" />
                     </fieldset>
 
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Category</label>
-                        {/* <input type="text" name='category' className="input w-full" placeholder="Enter coffee details" /> */}
+                        
                         <select name="category" className="select select-bordered" required>
                             <option disabled selected>Choose a category</option>
                             <option value="Web Development">Web Development</option>
@@ -45,11 +50,11 @@ const AddTask = () => {
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Deadline</label>
-                        <input type="date" name='deadline' className="input w-full" placeholder="Enter coffee name" />
+                        <input type="date" name='deadline' className="input w-full"/>
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Budget</label>
-                        <input type="text" name='budget' className="input w-full" placeholder="Enter coffee price" />
+                        <input type="text" name='budget' className="input w-full" placeholder="Enter your budget" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Name</label>

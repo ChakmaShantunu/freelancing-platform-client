@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const handleSignIn = (email, password) => {
         setLoading(true);
