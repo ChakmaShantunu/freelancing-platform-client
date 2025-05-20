@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../components/PrivateRoute/AuthProvider';
-import { Navigate } from 'react-router';
+import { Navigate, useLoaderData } from 'react-router';
+import TaskCard from '../../components/taskcard/TaskCard';
 
 const BrowseTask = () => {
 
@@ -8,9 +9,17 @@ const BrowseTask = () => {
     if (!user || !user?.email) {
         return <Navigate to="/log-in"></Navigate>
     }
+
+    const allTasks = useLoaderData();
+    console.log(allTasks);
+
     return (
         <div>
-            <h2>this is browse task</h2>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                {
+                    allTasks.map(task => <TaskCard key={task._id} task={task}></TaskCard>)
+                }
+            </div>
         </div>
     );
 };
