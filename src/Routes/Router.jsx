@@ -41,7 +41,9 @@ export const router = createBrowserRouter([
             {
                 path: '/tasks/:id',
                 loader: ({ params }) => fetch(`http://localhost:3000/tasks/${params.id}`),
-                element: <TaskDetails></TaskDetails>
+                element: <PrivateRoute>
+                    <TaskDetails></TaskDetails>
+                </PrivateRoute>
             },
             {
                 path: '/log-in',
