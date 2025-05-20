@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const handleSignIn = (email, password) => {
         setLoading(true);
@@ -29,13 +29,13 @@ const AuthProvider = ({ children }) => {
 
     const handleSignOut = () => {
         return signOut(auth)
-        .then(result => {
-            console.log('User signed out', result)
-            toast('You have signed out')
-        })
-        .catch(error => {
-            console.log('user have error', error)
-        })
+            .then(result => {
+                console.log('User signed out', result)
+                toast('You have signed out')
+            })
+            .catch(error => {
+                console.log('user have error', error)
+            })
     }
 
     const updateUser = (updatedData) => {
@@ -56,16 +56,20 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
             if (currentUser) {
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/auth.user
-                const uid = currentUser.uid;
-                console.log(uid);
-                // ...
+                currentUser.reload().then(() => {
+                    setUser({
+                        uid: currentUser.uid,
+                        email: currentUser.email,
+                        displayName: currentUser.displayName,
+                        photoURL: currentUser.photoURL,
+                    })
+                    setLoading(false)
+                })
+
             } else {
-                // User is signed out
-                // ...
+                setUser(null)
+                setLoading(false)
             }
         })
         return () => {

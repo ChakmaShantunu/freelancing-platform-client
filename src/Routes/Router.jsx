@@ -3,10 +3,10 @@ import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Pages/Home/Home";
 import Login from "../components/LogIn/Login";
 import Register from "../components/Register/Register";
-import AddTask from "../Pages/AddTask/AddTask";
 import BrowseTask from "../Pages/BrowseTask/BrowseTask";
 import PostedTask from "../Pages/PostedTask/PostedTask";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import AddTask from "../Pages/AddTask/AddTask";
 
 export const router = createBrowserRouter([
     {
@@ -23,13 +23,18 @@ export const router = createBrowserRouter([
                     <AddTask></AddTask>
                 </PrivateRoute>
             },
+
             {
                 path: '/browseTask',
-                Component: BrowseTask
+                element: <PrivateRoute>
+                    <BrowseTask></BrowseTask>
+                </PrivateRoute>
             },
             {
                 path: '/postedTask',
-                Component: PostedTask
+                element: <PrivateRoute>
+                    <PostedTask></PostedTask>
+                </PrivateRoute>
             },
             {
                 path: '/log-in',

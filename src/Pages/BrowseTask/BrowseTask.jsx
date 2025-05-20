@@ -4,8 +4,8 @@ import { Navigate } from 'react-router';
 
 const BrowseTask = () => {
 
-    const {user} = useContext(AuthContext)
-    if(!user || !user?.email) {
+    const { user } = useContext(AuthContext);
+    if (!user || !user?.email) {
         return <Navigate to="/log-in"></Navigate>
     }
     return (
