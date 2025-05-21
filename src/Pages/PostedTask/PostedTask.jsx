@@ -15,7 +15,13 @@ const PostedTask = () => {
         return <Navigate to="/log-in"></Navigate>
     }
 
-    const [myTask, setMyTask] = useState([])
+    const [myTask, setMyTask] = useState([]);
+    // const [bidsCount, setBidsCount] = useState(null);
+
+    // // const handleBidsCount = () => {
+    // //     setBidsCount(prev => prev + 1);
+    // // }
+
 
     const handleDelete = (id) => {
         console.log('deleting done', id)
@@ -58,9 +64,14 @@ const PostedTask = () => {
                 setMyTask(data);
             })
     }, [user.email])
+
+    
+
     return (
         <div>
             <div>
+                
+
                 {
                     myTask.length === 0 ?
                         (<p className='text-3xl text-center mt-12 font-bold'>No tasks found. You have not posted any tasks yet.</p>) :
@@ -81,6 +92,7 @@ const PostedTask = () => {
                                             <th>Bid</th>
                                             <th>Update</th>
                                             <th>Delete</th>
+                                            <th>Bids</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -120,6 +132,9 @@ const PostedTask = () => {
                                                 </td>
                                                 <td>
                                                     <button onClick={() => handleDelete(task._id)} className="btn hover:bg-red-200"><MdDelete size={20} /></button>
+                                                </td>
+                                                <td>
+                                                    {task.bidsCount}
                                                 </td>
                                             </tr>)
                                         }
