@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../components/PrivateRoute/AuthProvider';
 import { data, Navigate } from 'react-router';
 import TaskCard from '../../components/taskcard/TaskCard';
-import MyPostedTask from '../../components/myPostedTask/MyPostedTask';
 import { MdDelete, MdOutlineSystemUpdateAlt } from "react-icons/md";
 import { FaGavel } from "react-icons/fa";
 import Swal from 'sweetalert2';
@@ -98,7 +97,7 @@ const PostedTask = () => {
                                     <tbody>
 
                                         {
-                                            myTask.map((task, index) => <tr key={task._id} className='hover:bg-gray-100 transition duration-300 cursor-pointer'>
+                                            myTask.map((task, index) => <tr key={task._id} className='hover:bg-gray-100 hover:text-black transition duration-300 cursor-pointer'>
                                                 <th>
                                                     {index + 1}
                                                 </th>

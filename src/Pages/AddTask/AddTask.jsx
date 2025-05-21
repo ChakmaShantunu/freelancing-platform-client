@@ -46,11 +46,11 @@ const AddTask = () => {
             <form onSubmit={handleAddTask}>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-black font-semibold">Title</label>
+                        <label className="label text-base-content font-semibold">Title</label>
                         <input type="text" name='title' className="input w-full" placeholder="Enter coffee name" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-black font-semibold">Category</label>
+                        <label className="label font-semibold">Category</label>
                         <select name="category" id="" className='select select border' required>
                             <option disabled selected>Choose a category</option>
                             <option value="Web Development">Web Development</option>
@@ -60,23 +60,23 @@ const AddTask = () => {
                         </select>
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-black font-semibold">Description</label>
+                        <label className="label text-base-content font-semibold">Description</label>
                         <textarea name="description" id="" className='textarea textarea-border w-full'></textarea>
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-black font-semibold">Deadline</label>
+                        <label className="label text-base-content font-semibold">Deadline</label>
                         <input type="date" name='deadline' className="input w-full" placeholder="Enter coffee taste" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-black font-semibold">Budget</label>
+                        <label className="label text-base-content font-semibold">Budget</label>
                         <input type="text" name='budget' className="input w-full" placeholder="Enter coffee price" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-black font-semibold">Name</label>
+                        <label className="label text-base-content font-semibold">Name</label>
                         <input type="text" name='name' className="input w-full" defaultValue={user?.displayName} placeholder="Enter coffee details" readOnly />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                        <label className="label text-black font-semibold">Email</label>
+                        <label className="label text-base-content font-semibold">Email</label>
                         <input type="email" name='email' className="input w-full" defaultValue={user?.email} placeholder="Enter coffee details" readOnly />
                     </fieldset>
                 </div>

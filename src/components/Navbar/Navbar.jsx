@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../PrivateRoute/AuthProvider';
 import Profile from '../Profile/Profile';
@@ -17,6 +17,26 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const { user, handleSignOut } = useContext(AuthContext);
+    const [theme, setTheme] = useState("light");
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        setTheme(savedTheme);
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    }, [])
+
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme])
+
+    const handleToggle = e => {
+        if (e.target.checked) {
+            setTheme("dark")
+        } else {
+            setTheme("light")
+        }
+    }
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -41,13 +61,13 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end gap-2">
-                <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+                <input type="checkbox" value="dark" className="toggle theme-controller" onChange={handleToggle} checked={theme === "dark"}/>
 
                 {
-                    user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)
+                    user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-primary btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)
                 }
                 {
-                    user?.email ? "" : (<button onClick={() => navigate('/log-in')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Login</button>)
+                    user?.email ? "" : (<button onClick={() => navigate('/log-in')} className="btn btn-xs btn-primary btn-outline sm:btn-sm md:btn-sm lg:btn-md">Login</button>)
                 }
                 <Profile></Profile>
             </div>
