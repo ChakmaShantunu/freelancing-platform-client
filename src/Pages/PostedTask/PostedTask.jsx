@@ -6,6 +6,7 @@ import MyPostedTask from '../../components/myPostedTask/MyPostedTask';
 import { MdDelete, MdOutlineSystemUpdateAlt } from "react-icons/md";
 import { FaGavel } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const PostedTask = () => {
 
@@ -114,7 +115,7 @@ const PostedTask = () => {
                                                 <button className="btn hover:bg-green-200"><FaGavel size={20} /></button>
                                             </td>
                                             <td>
-                                                <button className="btn hover:bg-blue-200"><MdOutlineSystemUpdateAlt size={20} /></button>
+                                                <Link to={`/updateTask/${task._id}`}><button className="btn hover:bg-blue-200"><MdOutlineSystemUpdateAlt size={20} /></button></Link>
                                             </td>
                                             <td>
                                                 <button onClick={() => handleDelete(task._id)} className="btn hover:bg-red-200"><MdDelete size={20} /></button>
