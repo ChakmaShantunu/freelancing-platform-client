@@ -16,28 +16,34 @@ const Profile = () => {
         setShow(!show);
     }
     return (
-        <div className='relative'>
-            <img onClick={handleShow} className='w-8 h-8 md:w-16 md:h-16 cursor-pointer' src={`${user ? user?.photoURL : userImg}`} alt="" />
-            {
-                show && (
-                    <div className='absolute bg-amber-100 right-0 w-96 p-4 z-50 mt-2 rounded-lg'>
-                        {/* <div className='flex justify-between items-center mb-4'>
-                            <p className='text-xl'>Profile</p>
-                            <p className='text-xl'>Amount</p>
-                        </div> */}
-                        <div className='flex justify-between items-center'>
-                            <p>{user?.displayName || "No Name"}</p>
-                            <button onClick={handleSignOut} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Logout</button>
+        <div className="relative group" onMouseLeave={() => setShow(false)}>
 
-                        </div>
-                        <div className='w-48 p-4'>
-                            PhotoURL: {user?.photoURL || ""}
-                        </div>
+            <img
+                onClick={handleShow}
+                className="w-8 h-8 md:w-16 md:h-16 cursor-pointer"
+                src={`${user ? user?.photoURL : userImg}`}
+                alt=""
+                onMouseEnter={() => setShow(true)}
+            />
 
+            <div className={`absolute top-10 right-0 w-72 p-4 bg-neutral text-white rounded-lg z-50 transition-all duration-300
+        ${show ? "opacity-100 visible" : "opacity-0 invisible"} md:group-hover:opacity-100 md:group-hover:visible`}>
+                <div className="card bg-neutral text-neutral-content">
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">{user?.displayName || "No Name"}</h2>
+                        <p>PhotoURL: {user?.photoURL || ""}</p>
+                        <div className="card-actions justify-end">
+                            <button
+                                onClick={handleSignOut}
+                                className="btn btn-xs btn-primary sm:btn-sm md:btn-sm lg:btn-md">
+                                Logout
+                            </button>
+                        </div>
                     </div>
-                )
-            }
-        </div>
+                </div>
+            </div>
+        </div >
+
     );
 };
 

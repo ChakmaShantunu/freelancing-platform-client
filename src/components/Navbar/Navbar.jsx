@@ -39,8 +39,9 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
+
             <div className="navbar-end gap-2">
-                {/* <div>{user && user.email}</div> */}
+                <input type="checkbox" value="synthwave" className="toggle theme-controller" />
 
                 {
                     user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-neutral btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)
