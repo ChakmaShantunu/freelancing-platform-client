@@ -78,9 +78,9 @@ const AuthProvider = ({ children }) => {
     }, [])
     return (
         <div>
-            <AuthContext value={contextValues}>
+            <AuthContext.Provider value={contextValues}>
                 {children}
-            </AuthContext>
+            </AuthContext.Provider>
             <ToastContainer></ToastContainer>
         </div>
     );

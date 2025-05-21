@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../PrivateRoute/AuthProvider';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const UpdateTask = () => {
 
-    const { title, category, deadline, budget, name, email } = useLoaderData();
+    const { title, category, deadline, budget, name, email, _id, description } = useLoaderData();
+
+    const navigate = useNavigate();
 
     const { user } = useContext(AuthContext);
 
@@ -14,6 +17,29 @@ const UpdateTask = () => {
         const formData = new FormData(form);
         const updateTask = Object.fromEntries(formData.entries());
         console.log(updateTask);
+
+        fetch(`http://localhost:3000/tasks/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateTask)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        // position: "top-center",
+                        icon: "success",
+                        title: "Your task updated successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/postedTask')
+
+                }
+                console.log('after updating the data', data)
+            })
     }
     return (
         <div className='p-24'>
@@ -25,7 +51,7 @@ const UpdateTask = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Title</label>
-                        <input type="text" name='title' defaultValue={title} className="input w-full" placeholder="Enter coffee name" />
+                        <input type="text" name='title' className="input w-full" placeholder="Enter coffee name" />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label text-black font-semibold">Category</label>
