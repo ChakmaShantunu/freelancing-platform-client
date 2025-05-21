@@ -9,6 +9,7 @@ import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import AddTask from "../Pages/AddTask/AddTask";
 import TaskDetails from "../Pages/TaskDetails/TaskDetails";
 import UpdateTask from "../components/UpdateTask/UpdateTask";
+import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
 
 export const router = createBrowserRouter([
     {
@@ -39,8 +40,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/updateTask/:id',
-                loader:({params}) => fetch(`http://localhost:3000/tasks/${params.id}`),
-                element: <UpdateTask></UpdateTask>
+                loader: ({ params }) => fetch(`http://localhost:3000/tasks/${params.id}`),
+                element: <PrivateRoute>
+                    <UpdateTask></UpdateTask>
+                </PrivateRoute>
             },
             {
                 path: '/tasks/:id',
@@ -56,6 +59,10 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 Component: Register
+            },
+            {
+                path: '*',
+                Component: NotFoundPage
             },
 
         ]
