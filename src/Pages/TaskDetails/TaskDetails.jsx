@@ -9,7 +9,7 @@ const TaskDetails = () => {
 
     const handleBidsCount = (id) => {
         console.log(id);
-        fetch(`http://localhost:3000/tasks/bid/${_id}`, {
+        fetch(`https://assignment-ten-grapes-server.vercel.app/tasks/bid/${_id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

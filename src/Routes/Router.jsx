@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
 
             {
                 path: '/browseTask',
-                loader: () => fetch('http://localhost:3000/tasks'),
+                loader: () => fetch('https://assignment-ten-grapes-server.vercel.app/tasks'),
                 element: <BrowseTask></BrowseTask>
             },
             {
@@ -40,14 +40,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/updateTask/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/tasks/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-ten-grapes-server.vercel.app/tasks/${params.id}`),
                 element: <PrivateRoute>
                     <UpdateTask></UpdateTask>
                 </PrivateRoute>
             },
             {
                 path: '/tasks/:id',
-                loader: ({ params }) => fetch(`http://localhost:3000/tasks/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-ten-grapes-server.vercel.app/tasks/${params.id}`),
                 element: <PrivateRoute>
                     <TaskDetails></TaskDetails>
                 </PrivateRoute>

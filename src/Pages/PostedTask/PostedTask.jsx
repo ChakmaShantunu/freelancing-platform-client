@@ -35,7 +35,7 @@ const PostedTask = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/tasks/${id}`, {
+                fetch(`https://assignment-ten-grapes-server.vercel.app/tasks/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -57,7 +57,7 @@ const PostedTask = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3000/posted-tasks?email=${user.email}`)
+        fetch(`https://assignment-ten-grapes-server.vercel.app/posted-tasks?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyTask(data);
