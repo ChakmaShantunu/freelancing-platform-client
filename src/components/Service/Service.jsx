@@ -25,7 +25,7 @@ const Service = () => {
                         <li className='flex items-center gap-2'><IoCheckbox /> Tailwind CSS, React.js</li>
                     </ul>
                     <div className="card-actions mt-4">
-                        <button className="btn btn-neutral btn-outline">Explore more</button>
+                        <button className="btn btn-outline">Explore more</button>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@ const Service = () => {
                         <li className='flex items-center gap-2'><IoCheckbox /> Consistent color schemes, typography & branding</li>
                     </ul>
                     <div className="card-actions mt-4">
-                        <button className="btn btn-neutral btn-outline">Explore more</button>
+                        <button className="btn btn-outline">Explore more</button>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@ const Service = () => {
                         <li className='flex items-center gap-2'><IoCheckbox /> Text overlays & motion graphics</li>
                     </ul>
                     <div className="card-actions mt-4">
-                        <button className="btn btn-neutral btn-outline">Explore more</button>
+                        <button className="btn btn-outline">Explore more</button>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ const Service = () => {
                         <li className='flex items-center gap-2'><IoCheckbox /> On-time delivery & unlimited revisions</li>
                     </ul>
                     <div className="card-actions mt-4">
-                        <button className="btn btn-neutral btn-outline">Explore more</button>
+                        <button className="btn btn-outline">Explore more</button>
                     </div>
                 </div>
             </div>

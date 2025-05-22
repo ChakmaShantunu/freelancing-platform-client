@@ -3,6 +3,7 @@ import Hero from '../../components/Hero/Hero';
 import SectionTask from '../../components/SectionTask/SectionTask';
 import TaskCard from '../../components/taskcard/TaskCard';
 import Service from '../../components/Service/Service';
+import About from '../../components/About/About';
 
 const Home = () => {
 
@@ -31,6 +32,17 @@ const Home = () => {
                     <p className='text-xl'>"We offer modern, efficient, and customized solutions to help your business stand out and grow online."</p>
                 </div>
                 <Service></Service>
+            </section>
+            <section className='my-24'>
+                <div className='text-center mt-24 space-y-4'>
+                    <h1 className='text-5xl font-bold'>About Us</h1>
+                    <p className='text-xl'>We're a passionate and detail-oriented front-end developer and video editor with a focus on creating clean, user-friendly, and performance-optimized digital experiences.
+
+                        With a strong foundation in HTML, CSS, JavaScript, React, and TailwindCSS, we build responsive websites that look great on any device. we also offer professional video editing services that bring your content to life with smooth transitions, motion graphics, and storytelling techniques.
+
+                        My goal is simple — to help businesses and individuals stand out online through beautiful design, intuitive user interfaces, and engaging visuals. I value clear communication, on-time delivery, and building long-term relationships with clients.</p>
+                </div>
+                <About></About>
             </section>
         </div>
     );
