@@ -4,3 +4,11 @@
 a.active {
     text-decoration: underline;
 }
+
+.bg {
+    background-image: url('../src/assets/bg.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
