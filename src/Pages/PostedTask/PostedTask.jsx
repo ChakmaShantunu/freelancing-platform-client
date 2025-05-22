@@ -17,10 +17,6 @@ const PostedTask = () => {
     const [myTask, setMyTask] = useState([]);
     // const [bidsCount, setBidsCount] = useState(null);
 
-    // // const handleBidsCount = () => {
-    // //     setBidsCount(prev => prev + 1);
-    // // }
-
 
     const handleDelete = (id) => {
         console.log('deleting done', id)
@@ -68,9 +64,7 @@ const PostedTask = () => {
 
     return (
         <div>
-            <div>
-                
-
+            <div className='my-6'>
                 {
                     myTask.length === 0 ?
                         (<p className='text-3xl text-center mt-12 font-bold'>No tasks found. You have not posted any tasks yet.</p>) :
@@ -144,14 +138,14 @@ const PostedTask = () => {
                             <div className='lg:hidden grid gap-4 mt-5'>
                                 {
                                     myTask.map((task, index) => (
-                                        <div key={task._id} className="bg-white p-4 rounded-lg shadow-md">
-                                            <h3 className="text-lg font-bold mb-2">{task.title}</h3>
+                                        <div key={task._id} className="bg-base-100 p-4 rounded-lg shadow-xl/15 space-y-2">
+                                            <h3 className="text-lg font-bold my-6">{task.title}</h3>
                                             <p><span className="font-semibold">Name:</span> {task.name}</p>
                                             <p><span className="font-semibold">Email:</span> {task.email}</p>
                                             <p><span className="font-semibold">Deadline:</span> {task.deadline}</p>
                                             <p><span className="font-semibold">Category:</span> {task.category}</p>
                                             <p><span className="font-semibold">Budget:</span> ${task.budget}</p>
-                                            <div className="flex justify-between items-center mt-3">
+                                            <div className="flex justify-between items-center mt-6">
                                                 <button className="btn hover:bg-green-200"><FaGavel size={20} /></button>
                                                 <Link to={`/updateTask/${task._id}`}>
                                                     <button className="btn hover:bg-blue-200"><MdOutlineSystemUpdateAlt size={20} /></button>

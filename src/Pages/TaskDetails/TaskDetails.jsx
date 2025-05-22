@@ -29,12 +29,12 @@ const TaskDetails = () => {
     }
     console.log(singleTask);
     return (
-        <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition duration-300 mt-12">
-            <h2 className="text-xl font-bold text-black mb-1">You bid for {bidsCount} opportunities</h2>
-            <h2 className="text-xl font-bold text-black mb-1">{title}</h2>
-            <p className="text-sm text-black mb-2">Category: <span className='font-semibold'>{category}</span></p>
+        <div className="bg-base-100 shadow-md rounded-lg p-4 hover:shadow-xl/15 transition duration-300 my-12">
+            <h2 className="text-xl font-bold text-base-content mb-1">You bid for {bidsCount} opportunities</h2>
+            <h2 className="text-xl font-bold text-base-content mb-1">{title}</h2>
+            <p className="text-sm text-base-content mb-2">Category: <span className='font-semibold'>{category}</span></p>
 
-            <div className="text-sm text-black space-y-1 mb-3">
+            <div className="text-sm text-base-content space-y-1 mb-3">
                 <p><span className="font-semibold">Deadline:</span> {deadline}</p>
                 <p><span className="font-semibold">Budget:</span> ${budget}</p>
                 <p><span className="font-semibold">Posted by:</span> {name}</p>

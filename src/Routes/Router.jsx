@@ -60,11 +60,10 @@ export const router = createBrowserRouter([
                 path: '/register',
                 Component: Register
             },
-            {
-                path: '*',
-                Component: NotFoundPage
-            },
-
         ]
-    }
+    },
+    {
+        path: '*',
+        Component: NotFoundPage
+    },
 ])

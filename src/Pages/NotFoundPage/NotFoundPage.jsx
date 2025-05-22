@@ -13,13 +13,13 @@ const NotFoundPage = () => {
     const { View } = useLottie(options);
     return (
         <div
-            className="hero min-h-screen mt-12"
+            className="hero min-h-screen"
             style={{
                 backgroundImage:
                     `url(${error})`,
             }}
         >
-            <div className="hero-overlay rounded-2xl"></div>
+            <div className="hero-overlay min-h-screen"></div>
             <div className="hero-content text-neutral-content text-center">
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">Page Not Found</h1>
