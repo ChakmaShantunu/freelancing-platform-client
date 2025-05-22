@@ -1,7 +1,16 @@
 import React from 'react';
 import error from '../../assets/erropage.png'
+import { useLottie } from 'lottie-react';
+import groovyWalkAnimation from "../../animations/groovyWalk.json";
+
 
 const NotFoundPage = () => {
+    const options = {
+        animationData: groovyWalkAnimation,
+        loop: true
+    };
+
+    const { View } = useLottie(options);
     return (
         <div
             className="hero min-h-screen mt-12"
@@ -17,6 +26,7 @@ const NotFoundPage = () => {
                     <p className="mb-5">
                         The page you're looking for doesn't exist or has been moved.
                     </p>
+                    {View}
                 </div>
             </div>
         </div>

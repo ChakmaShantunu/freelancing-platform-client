@@ -1,7 +1,15 @@
 import React from 'react';
 import aboutImg from '../../assets/about.png'
+import groovyWalkAnimation from "../../animations/groovyWalk.json"
+import { useLottie } from 'lottie-react';
 
 const About = () => {
+
+    const options = {
+        animationData: groovyWalkAnimation,
+        loop: true
+    };
+    const { View } = useLottie(options);
     return (
         <section className="bg-base-100 py-16 px-4 md:px-10 mt-12">
             <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
@@ -21,6 +29,7 @@ const About = () => {
                         Our vision is to become a trusted name in the digital landscape, where every idea is transformed into a meaningful and impactful digital solution.
                     </p>
                     <button className="btn btn-neutral">Meet Our Team</button>
+                    {View}
                 </div>
 
                 {/* Image */}

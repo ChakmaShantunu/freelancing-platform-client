@@ -5,6 +5,7 @@ import TaskCard from '../../components/taskcard/TaskCard';
 import Service from '../../components/Service/Service';
 import About from '../../components/About/About';
 import Updates from '../../components/Updates/Updates';
+import GroovyWalk from '../../components/lottie/GroovyWalk';
 
 const Home = () => {
 
@@ -35,6 +36,7 @@ const Home = () => {
                 <Service></Service>
             </section>
 
+
             <section className='my-24'>
                 <div className='text-center mt-24 space-y-4'>
                     <h1 className='text-5xl font-bold'>Get Our Updates</h1>
@@ -44,8 +46,8 @@ const Home = () => {
             </section>
 
             <section className='my-24'>
-                <div className='text-center mt-24 space-y-4'>
-                    <h1 className='text-5xl font-bold'>About Us</h1>
+                <div className='text-center mt-24 space-y-8'>
+                    <h1 className='text-5xl font-bold mt-6'>About</h1>
                     <p className='text-xl'>We're a passionate and detail-oriented front-end developer and video editor with a focus on creating clean, user-friendly, and performance-optimized digital experiences.
 
                         With a strong foundation in HTML, CSS, JavaScript, React, and TailwindCSS, we build responsive websites that look great on any device. we also offer professional video editing services that bring your content to life with smooth transitions, motion graphics, and storytelling techniques.

@@ -8,9 +8,18 @@ import 'swiper/css/navigation';
 import slider1Img from '../../assets/freelance.png'
 import slider2Img from '../../assets/slider2.png'
 import slider3Img from '../../assets/slider3.png'
+import groovyWalkAnimation from "../../animations/groovyWalk.json"
+import { useLottie } from 'lottie-react';
 
 
 const Hero = () => {
+
+    const options = {
+        animationData: groovyWalkAnimation,
+        loop: true
+    };
+    const { View } = useLottie(options);
+
     return (
         <section className="bg-dark rounded-2xl shadow-xl/15">
             <Swiper
@@ -95,6 +104,7 @@ const Hero = () => {
                                 alt=""
                                 className="object-contain w-full h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 rounded-3xl"
                             />
+                            
                         </div>
                     </div>
                 </SwiperSlide>
