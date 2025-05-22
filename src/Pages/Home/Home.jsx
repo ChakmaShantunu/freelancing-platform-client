@@ -4,6 +4,7 @@ import SectionTask from '../../components/SectionTask/SectionTask';
 import TaskCard from '../../components/taskcard/TaskCard';
 import Service from '../../components/Service/Service';
 import About from '../../components/About/About';
+import Updates from '../../components/Updates/Updates';
 
 const Home = () => {
 
@@ -33,6 +34,15 @@ const Home = () => {
                 </div>
                 <Service></Service>
             </section>
+
+            <section className='my-24'>
+                <div className='text-center mt-24 space-y-4'>
+                    <h1 className='text-5xl font-bold'>Get Our Updates</h1>
+                    <p className='text-xl'>"We offer modern, efficient, and customized solutions to help your business stand out and grow online."</p>
+                </div>
+                <Updates></Updates>
+            </section>
+
             <section className='my-24'>
                 <div className='text-center mt-24 space-y-4'>
                     <h1 className='text-5xl font-bold'>About Us</h1>
