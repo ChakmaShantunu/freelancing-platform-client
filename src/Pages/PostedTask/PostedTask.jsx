@@ -138,7 +138,7 @@ const PostedTask = () => {
                             <div className='lg:hidden grid gap-4 mt-5'>
                                 {
                                     myTask.map((task, index) => (
-                                        <div key={task._id} className="bg-base-100 p-4 rounded-lg shadow-xl/15 space-y-2">
+                                        <div key={task._id} className="bg-base-100 p-4 rounded-lg shadow-xl/15 space-y-2 border-2 border-gray-600">
                                             <h3 className="text-lg font-bold my-6">{task.title}</h3>
                                             <p><span className="font-semibold">Name:</span> {task.name}</p>
                                             <p><span className="font-semibold">Email:</span> {task.email}</p>
