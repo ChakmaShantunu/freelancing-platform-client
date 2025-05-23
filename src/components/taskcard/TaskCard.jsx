@@ -5,7 +5,7 @@ const TaskCard = ({ task }) => {
 
     const { _id, title, budget, category, email, name, deadline } = task;
     return (
-        <div className="bg-base-100 shadow-md rounded-lg p-4 border-1 border-amber-100 hover:shadow-lg transition duration-300 hover:scale-105">
+        <div className="bg-base-100 shadow-md rounded-lg p-4 border-2 border-gray-600 hover:shadow-lg transition duration-300 hover:scale-105">
             <h2 className="text-xl font-bold text-base-content mb-1">{title}</h2>
             <p className="text-sm text-base-content mb-2">{category}</p>
 

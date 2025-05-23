@@ -29,7 +29,7 @@ const TaskDetails = () => {
     }
     console.log(singleTask);
     return (
-        <div className="bg-base-100 shadow-md rounded-lg p-4 hover:shadow-xl/15 transition duration-300 my-12">
+        <div className="bg-base-100 shadow-md border-2 border-gray-600 rounded-lg p-4 hover:shadow-xl/15 transition duration-300 my-12">
             <h2 className="text-xl font-bold text-base-content mb-1">You bid for {bidsCount} opportunities</h2>
             <h2 className="text-xl font-bold text-base-content mb-1">{title}</h2>
             <p className="text-sm text-base-content mb-2">Category: <span className='font-semibold'>{category}</span></p>
@@ -40,7 +40,7 @@ const TaskDetails = () => {
                 <p><span className="font-semibold">Posted by:</span> {name}</p>
                 <p><span className="font-semibold">Email:</span> {email}</p>
             </div>
-            <button onClick={() => handleBidsCount(_id)} className="btn btn-wide">Bid</button>
+            <button onClick={() => handleBidsCount(_id)} className="btn btn-wide btn-outline">Bid</button>
         </div>
     );
 };
