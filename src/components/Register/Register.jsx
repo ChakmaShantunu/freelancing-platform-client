@@ -16,7 +16,7 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(name, email, photo, password);
 
-        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+        const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
         if (regex.test(password)) {
             alert("valid password")
