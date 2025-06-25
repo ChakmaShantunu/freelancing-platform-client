@@ -15,7 +15,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
     "A platform the connects clients with the freelance with small tasks. User can post task, update task, see their own tasks, browse task."
 
-## Live Site URL : "https://freelance-marketplace-app.web.app"
+## Live Site URL :
+
+"https://freelance-marketplace-app.web.app"
 
 ## Live netlify URL: https://polite-semifreddo-73d4a1.netlify.app/
 
