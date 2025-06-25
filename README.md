@@ -11,18 +11,19 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-
 ## Freelance Task MarketPlace
 
     "A platform the connects clients with the freelance with small tasks. User can post task, update task, see their own tasks, browse task."
 
 ## Live Site URL : https://freelance-marketplace-app.web.app
+
 ## Live netlify URL: https://polite-semifreddo-73d4a1.netlify.app/
+
 ## Live server URL: https://assignment-ten-grapes-server.vercel.app/
-## Git repository Client: https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-shantunu007
-## Git repository Server: https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-shantunu007
 
+## Git repository Client: https://github.com/ChakmaShantunu/freelancing-platform-client.git
 
+## Git repository Server: https://github.com/ChakmaShantunu/freelancing-platform-server.git
 
 ## Features
 

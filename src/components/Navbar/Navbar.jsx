@@ -61,7 +61,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end gap-2">
-                <input type="checkbox" value="dark" className="toggle theme-controller" onChange={handleToggle} checked={theme === "dark"}/>
+                <input type="checkbox" value="dark" className="toggle theme-controller" onChange={handleToggle} checked={theme === "dark"} />
 
                 {
                     user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-soft btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)
