@@ -11,6 +11,7 @@ const links = <>
     <li><NavLink to="/addTask">Add Task</NavLink></li>
     <li><NavLink to="/browseTask">Browse Tasks</NavLink></li>
     <li><NavLink to="/postedTask">My Posted Tasks</NavLink></li>
+    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
 </>
 const Navbar = () => {
 
@@ -19,24 +20,26 @@ const Navbar = () => {
     const { user, handleSignOut } = useContext(AuthContext);
     const [theme, setTheme] = useState("light");
 
+    const handleToggle = e => {
+        const isChecked = e.target.checked
+        const newTheme = isChecked ? 'dark' : 'light'
+        localStorage.setItem('theme', newTheme)
+        document.documentElement.setAttribute('data-theme', newTheme)
+        setTheme(isChecked);
+    }
+
     useEffect(() => {
-        const savedTheme = localStorage.getItem("theme") || "light";
-        setTheme(savedTheme);
-        document.documentElement.setAttribute("data-theme", savedTheme);
+        const saveTheme = localStorage.getItem('theme')
+        if (saveTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark')
+            setTheme(true)
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light')
+            setTheme(false)
+        }
     }, [])
 
-    useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-    }, [theme])
 
-    const handleToggle = e => {
-        if (e.target.checked) {
-            setTheme("dark")
-        } else {
-            setTheme("light")
-        }
-    }
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -61,7 +64,35 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end gap-2">
-                <input type="checkbox" value="dark" className="toggle theme-controller" onChange={handleToggle} checked={theme === "dark"} />
+                <label className="flex cursor-pointer gap-2 mr-4">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <path
+                            d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+                    </svg>
+                    <input type="checkbox" className="toggle theme-controller" onChange={handleToggle} checked={theme} />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </label>
 
                 {
                     user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-soft btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)

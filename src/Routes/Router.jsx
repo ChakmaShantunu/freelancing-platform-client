@@ -10,6 +10,10 @@ import AddTask from "../Pages/AddTask/AddTask";
 import TaskDetails from "../Pages/TaskDetails/TaskDetails";
 import UpdateTask from "../components/UpdateTask/UpdateTask";
 import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
+import DashBoardLayout from "../Layouts/DashBoardLayout";
+import MyTasks from "../Pages/Dashboard/Tasks/MyTasks";
+import MyBids from "../Pages/Dashboard/MyBids/MyBids";
+import TotalTasks from "../Pages/Dashboard/TotalTasks/TotalTasks";
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +65,28 @@ export const router = createBrowserRouter([
                 Component: Register
             },
         ]
+    },
+    {
+        path: 'dashboard',
+        element: <PrivateRoute>
+            <DashBoardLayout></DashBoardLayout>
+        </PrivateRoute>,
+        children: [
+            {
+                index: true,
+                Component: MyTasks
+            },
+            {
+                path: 'myBids',
+                Component: MyBids
+            },
+            {
+                path: 'totalTasks',
+                Component: TotalTasks,
+                loader: () => fetch('https://assignment-ten-grapes-server.vercel.app/tasks'),
+            }
+        ]
+
     },
     {
         path: '*',

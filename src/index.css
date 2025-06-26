@@ -1,14 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
 a.active {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .bg {
-    background-image: url('../src/assets/bg.jpeg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
+  background-image: url("../src/assets/bg.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
