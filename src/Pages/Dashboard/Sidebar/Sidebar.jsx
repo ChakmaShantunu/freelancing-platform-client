@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaClipboardList, FaGavel, FaTasks } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../../components/PrivateRoute/AuthProvider';
 
 const Sidebar = () => {
+    const { handleSignOut } = useContext(AuthContext);
     return (
         <div className="flex flex-col h-full p-3 w-60  rounded-tr-lg rounded-br-lg">
             <div className="space-y-3">
@@ -35,12 +37,12 @@ const Sidebar = () => {
                             </Link>
                         </li>
 
-                        <li className="rounded-sm">
+                        {/* <li className="rounded-sm">
                             <Link to="/dashboard/myBids" className="flex items-center p-2 space-x-3 rounded-md">
                                 <FaGavel className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                                 <span>My Bids</span>
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li className="rounded-sm">
                             <Link to="/dashboard/totalTasks" className="flex items-center p-2 space-x-3 rounded-md">
@@ -49,13 +51,11 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className="rounded-sm">
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-600">
-                                    <path d="M440,424V88H352V13.005L88,58.522V424H16v32h86.9L352,490.358V120h56V456h88V424ZM320,453.642,120,426.056V85.478L320,51Z"></path>
-                                    <rect width="32" height="64" x="256" y="232"></rect>
-                                </svg>
-                                <span>Logout</span>
-                            </a>
+                            <button
+                                onClick={handleSignOut}
+                                className="btn btn-xs btn-primary sm:btn-sm md:btn-sm lg:btn-md">
+                                Logout
+                            </button>
                         </li>
                     </ul>
                 </div>

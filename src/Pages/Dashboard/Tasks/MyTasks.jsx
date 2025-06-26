@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../components/PrivateRoute/AuthProvider';
 import { MdDelete, MdOutlineSystemUpdateAlt } from 'react-icons/md';
 import { FaGavel } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { data, Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 const MyTasks = () => {
@@ -22,11 +22,21 @@ const MyTasks = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
+                fetch(`https://assignment-ten-grapes-server.vercel.app/tasks/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            const remainingTask = myTask.filter(task => task._id !== id)
+                            setMyTask(remainingTask)
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
             }
         });
     }
