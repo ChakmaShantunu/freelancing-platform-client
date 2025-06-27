@@ -74,11 +74,15 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: MyTasks
+                element: <PrivateRoute>
+                    <MyTasks></MyTasks>
+                </PrivateRoute>
             },
             {
                 path: 'myBids',
-                Component: MyBids
+                element: <PrivateRoute>
+                    <MyBids></MyBids>
+                </PrivateRoute>
             },
             {
                 path: 'totalTasks',
