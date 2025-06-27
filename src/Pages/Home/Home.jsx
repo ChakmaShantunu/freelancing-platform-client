@@ -6,6 +6,8 @@ import Service from '../../components/Service/Service';
 import About from '../../components/About/About';
 import Updates from '../../components/Updates/Updates';
 import GroovyWalk from '../../components/lottie/GroovyWalk';
+import Review from './Review/Review';
+import Faq from '../../components/Faq/Faq';
 
 const Home = () => {
 
@@ -44,8 +46,7 @@ const Home = () => {
                 </div>
                 <Updates></Updates>
             </section>
-
-            <section className='my-24'>
+            {/* <section className='my-24'>
                 <div className='text-center mt-24 space-y-8'>
                     <h1 className='text-5xl font-bold mt-6'>About</h1>
                     <p className='text-xl'>We're a passionate and detail-oriented front-end developer and video editor with a focus on creating clean, user-friendly, and performance-optimized digital experiences.
@@ -55,6 +56,12 @@ const Home = () => {
                         My goal is simple — to help businesses and individuals stand out online through beautiful design, intuitive user interfaces, and engaging visuals. I value clear communication, on-time delivery, and building long-term relationships with clients.</p>
                 </div>
                 <About></About>
+            </section> */}
+            <section className='my-24'>
+                <Review></Review>
+            </section>
+            <section className='my-24'>
+                <Faq></Faq>
             </section>
         </div>
     );

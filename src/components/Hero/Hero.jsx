@@ -21,7 +21,7 @@ const Hero = () => {
     const { View } = useLottie(options);
 
     return (
-        <section className="bg-dark rounded-2xl shadow-xl/15">
+        <section className="bg-dark rounded-2xl shadow-2xl mt-4">
             <Swiper
                 modules={[Autoplay, Pagination, Navigation]}
                 autoplay={{ delay: 4000, disableOnInteraction: false }}

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FaClipboardList, FaGavel, FaTasks } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../../components/PrivateRoute/AuthProvider';
+import logo from '../../../assets/logo.png'
 
 const Sidebar = () => {
     const { handleSignOut } = useContext(AuthContext);
@@ -9,14 +10,7 @@ const Sidebar = () => {
         <div className="flex flex-col h-full p-3 w-60  rounded-tr-lg rounded-br-lg">
             <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                    <NavLink to='/' className="btn btn-ghost text-xl">kAj Khujhi</NavLink>
-                    <button className="p-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-current dark:text-gray-800">
-                            <rect width="352" height="32" x="80" y="96"></rect>
-                            <rect width="352" height="32" x="80" y="240"></rect>
-                            <rect width="352" height="32" x="80" y="384"></rect>
-                        </svg>
-                    </button>
+                    <NavLink to='/' className="btn btn-ghost text-xl"><img src={logo} className='w-10 h-10 hidden md:block' alt="" /> kAj Khujhi</NavLink>
                 </div>
                 <div className="relative">
                     <span className="absolute inset-y-0 left-0 flex items-center py-4">
@@ -48,6 +42,12 @@ const Sidebar = () => {
                             <Link to="/dashboard/totalTasks" className="flex items-center p-2 space-x-3 rounded-md">
                                 <FaClipboardList className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                                 <span>Total Tasks</span>
+                            </Link>
+                        </li>
+                        <li className="rounded-sm">
+                            <Link to="/dashboard/myBids" className="flex items-center p-2 space-x-3 rounded-md">
+                                <FaClipboardList className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                                <span>My Bids</span>
                             </Link>
                         </li>
                         <li className="rounded-sm">

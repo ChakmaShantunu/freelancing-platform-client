@@ -1,9 +1,11 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { data, useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../components/PrivateRoute/AuthProvider';
 
 const TaskDetails = () => {
+    const { user } = useContext(AuthContext);
     const data = useLoaderData();
     const [singleTask, setSingleTask] = useState(data);
     const { title, category, deadline, budget, name, email, _id, bidsCount } = singleTask;
@@ -11,7 +13,11 @@ const TaskDetails = () => {
     const handleBidsCount = (id) => {
         console.log(id);
         fetch(`https://assignment-ten-grapes-server.vercel.app/tasks/bid/${_id}`, {
-            method: 'PATCH'
+            method: 'PATCH',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                email: user.email
+            })
         })
             .then(res => res.json())
             .then(data => {
@@ -23,7 +29,7 @@ const TaskDetails = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    setSingleTask(prev => ({...prev, bidsCount: (prev.bidsCount || 0) + 1}));
+                    setSingleTask(prev => ({ ...prev, bidsCount: (prev.bidsCount || 0) + 1 }));
                 }
                 console.log('after bidding the data', data)
             })

@@ -20,7 +20,7 @@ const Profile = () => {
 
             <img
                 onClick={handleShow}
-                className="w-8 h-8 md:w-16 md:h-16 cursor-pointer"
+                className="w-8 h-8 md:w-12 md:h-12 rounded-full cursor-pointer"
                 src={`${user ? user?.photoURL : userImg}`}
                 alt=""
                 onMouseEnter={() => setShow(true)}

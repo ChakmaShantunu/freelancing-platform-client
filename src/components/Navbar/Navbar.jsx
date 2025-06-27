@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../PrivateRoute/AuthProvider';
 import Profile from '../Profile/Profile';
+import logo from '../../assets/logo.png'
 
 
 
@@ -10,7 +11,7 @@ const links = <>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="/addTask">Add Task</NavLink></li>
     <li><NavLink to="/browseTask">Browse Tasks</NavLink></li>
-    <li><NavLink to="/postedTask">My Posted Tasks</NavLink></li>
+    {/* <li><NavLink to="/postedTask">My Posted Tasks</NavLink></li> */}
     <li><NavLink to="/dashboard">Dashboard</NavLink></li>
 </>
 const Navbar = () => {
@@ -42,7 +43,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,6 +56,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {/* <a className="btn btn-ghost text-xl">kAj Khujhi</a> */}
+                <Link to='/'>
+                    <img src={logo} className='w-10 h-10 hidden md:block' alt="" />
+                </Link>
                 <NavLink to='/' className="btn btn-ghost text-xl">kAj Khujhi</NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
