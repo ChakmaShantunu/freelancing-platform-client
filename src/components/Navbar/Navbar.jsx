@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../PrivateRoute/AuthProvider';
+import { GrFormNextLink } from "react-icons/gr";
+import { motion } from "framer-motion";
 import Profile from '../Profile/Profile';
 import logo from '../../assets/logo.png'
 
@@ -15,6 +17,14 @@ const links = <>
     <li><NavLink to="/dashboard">Dashboard</NavLink></li>
 </>
 const Navbar = () => {
+
+    const textVariants = {
+        initial: { y: 0, opacity: 1 },
+        hover: {
+            y: [-0, -5, 5, 0],
+            opacity: [1, 0, 0, 1],
+        },
+    };
 
     const navigate = useNavigate();
 
@@ -59,7 +69,10 @@ const Navbar = () => {
                 <Link to='/'>
                     <img src={logo} className='w-10 h-10 hidden md:block' alt="" />
                 </Link>
-                <NavLink to='/' className="btn btn-ghost text-xl">kAj Khujhi</NavLink>
+                <Link to='/' className='text-4xl uppercase font-bold tracking-widest'>
+                    kaj khuji
+                </Link>
+                {/* <NavLink to='/' className="btn btn-ghost text-xl">kAj Khujhi</NavLink> */}
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -99,11 +112,39 @@ const Navbar = () => {
                 </label>
 
                 {
-                    user?.email ? "" : (<button onClick={() => navigate('/register')} className="btn btn-xs btn-soft btn-outline sm:btn-sm md:btn-sm lg:btn-md">Register</button>)
+                    user?.email ? (
+                        ""
+                    ) : (
+                        <motion.button
+                            onClick={() => navigate("/register")}
+                            initial="initial"
+                            whileHover="hover"
+                            className="btn btn-xs sm:btn-sm md:btn-sm lg:btn-md btn-neutral lg:rounded-3xl overflow-hidden relative"
+                        >
+                            <motion.div
+                                variants={textVariants}
+                                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                                className="flex items-center gap-1"
+                            >
+                                Register
+                                <GrFormNextLink size={25} className="-rotate-45" />
+                            </motion.div>
+                        </motion.button>
+                    )
                 }
-                {
+
+
+
+
+                {/* {
                     user?.email ? "" : (<button onClick={() => navigate('/log-in')} className="btn btn-xs btn-soft btn-outline sm:btn-sm md:btn-sm lg:btn-md">Login</button>)
-                }
+                } */}
+
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onHoverStart={() => console.log('hover started!')}
+                />
                 <Profile></Profile>
             </div>
         </div>

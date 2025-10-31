@@ -15,7 +15,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
     "A platform the connects clients with the freelance with small tasks. User can post task, update task, see their own tasks, browse task."
 
-## Live Site URL : https://freelance-marketplace-app.web.app
+## Live Site URL : https://social-event-platform-8f1fd.web.app
 
 ## Live netlify URL: https://polite-semifreddo-73d4a1.netlify.app/
 
@@ -47,3 +47,4 @@ If you are developing a production application, we recommend using TypeScript wi
 7. Lottie React
 8. MongoDB(for backend)
 9. Express JS (for server)
+10. React Animation on Scroll
