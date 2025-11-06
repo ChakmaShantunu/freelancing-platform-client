@@ -69,7 +69,7 @@ const Navbar = () => {
                 <Link to='/'>
                     <img src={logo} className='w-10 h-10 hidden md:block' alt="" />
                 </Link>
-                <Link to='/' className='text-4xl uppercase font-bold tracking-widest ml-4'>
+                <Link to='/' className='text-4xl uppercase font-bold tracking-widest ml-4 hidden md:block'>
                     kaj khuji
                 </Link>
                 {/* <NavLink to='/' className="btn btn-ghost text-xl">kAj Khujhi</NavLink> */}
