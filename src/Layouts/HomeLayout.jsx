@@ -20,7 +20,7 @@ const HomeLayout = () => {
     }, [])
     return (
         <div className='relative'>
-            <nav className={`sticky top-0 z-50 mx-auto transition-all duration-300 ease-in-out ${scrolled ? "max-w-7xl" : "max-w-11/12"}`}>
+            <nav className={`sticky top-0 z-50 mx-auto transition-all duration-300 ease-in-out ${scrolled ? "max-w-7xl px-6 py-2 border-white/10 shadow-lg bg-white/10 rounded-2xl backdrop-filter backdrop-blur-3xl" : "max-w-11/12"}`}>
                 <Navbar></Navbar>
             </nav>
             <main className='w-11/12 mx-auto'>
