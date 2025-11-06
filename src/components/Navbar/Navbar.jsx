@@ -75,7 +75,7 @@ const Navbar = () => {
                 {/* <NavLink to='/' className="btn btn-ghost text-xl">kAj Khujhi</NavLink> */}
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-6 py-2 rounded-3xl bg-gray-100 hover:px-12 transform transition-all duration-300 ease-in-out">
                     {links}
                 </ul>
             </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
                             <motion.div
                                 variants={textVariants}
                                 transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-                                className="flex items-center gap-1"
+                                className="flex items-center"
                             >
                                 Register
                                 <GrFormNextLink size={25} className="-rotate-45" />
