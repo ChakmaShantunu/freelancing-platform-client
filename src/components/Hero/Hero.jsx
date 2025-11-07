@@ -25,7 +25,14 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <section className='max-w-7xl mx-auto relative'>
                 <div className='max-w-5xl mx-auto text-center py-24'>
-                    <h1 className='text-7xl font-bold text-white'>Join as a Freelancer on <span className='text-blue-200'>SkillHub</span></h1>
+                    <div className='my-24'>
+                        <h1 className='text-7xl font-bold text-white'>Join as a Freelancer on <span className='text-blue-200'>SkillHub</span></h1>
+                        <input type="search" placeholder='Search...' className='outline-none px-6 py-4 w-2xl rounded-xl bg-white my-12' />
+                        <div className='space-x-5'>
+                            <button className='bg-blue-400 px-8 py-4 rounded-2xl font-semibold text-xl w-xs cursor-pointer'>Get Started</button>
+                            <button className='bg-blue-400 px-8 py-4 rounded-2xl font-semibold text-xl w-xs cursor-pointer'>Learn More</button>
+                        </div>
+                    </div>
                 </div>
             </section>
         </section >
